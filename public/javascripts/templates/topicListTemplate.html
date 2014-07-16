@@ -1,0 +1,26 @@
+<script type="text/template" id="topicListTemplate">
+	<button id="newTopicBtn" type="submit" class="btn btn-primary" value="newTopic">
+		Create new topic
+	</button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                th>Topic name</th>
+                <th>Topic subject</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        	<% _.each(topics, function(topic) { %>
+        		<tr>
+                    <td><%= topic.get('topicName') %></td>
+                    <td><%= topic.get('topicSubject') %></td>
+                    <td><%= topic.get('creationDate') %></td>
+                </tr>
+        	<% }) %>
+        </tbody>
+
+    </table>
+</script>
