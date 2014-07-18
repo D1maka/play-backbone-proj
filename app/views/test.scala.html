@@ -6,9 +6,9 @@
     <title>play-example-form</title>
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("css/bootstrap.min.css")">
     <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>-->
+    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>-->
 </head>
 <body>
 <div class="navbar navbar-inverse" role="navigation">
@@ -55,6 +55,7 @@
     </table>
 </script>
 
-<script type="text/javascript" src="@routes.Assets.at("main.js")"></script>
+<!--<script type="text/javascript" src="@routes.Assets.at("main.js")"></script>-->
+<script data-main="@routes.Assets.at("dependency.js")" src="@routes.Assets.at("javascripts/lib/require.js")"></script>
 </body>
 </html>
