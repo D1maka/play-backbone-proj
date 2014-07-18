@@ -13,12 +13,15 @@ import play.mvc.*;
 
 import views.html.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Application extends Controller {
 
     public static Result index() {
-        return ok(test.render("Your new application is ready."));
+        ArrayList<Topic> topics = new ArrayList<>();
+        return ok(test.render("Your new application is ready.", Json.toJson(topics)));
+//        return ok(test.render("Your new application is ready."));
     }
 
     public static F.Promise<Result> getTopics() {
@@ -36,6 +39,7 @@ public class Application extends Controller {
             @Override
             public Result apply(List<Topic> topics) throws Throwable {
                 return ok(Json.toJson(topics));
+//                return ok(test.render("rhehe", Json.toJson(topics)));
             }
         });
     }

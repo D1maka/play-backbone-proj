@@ -7,7 +7,8 @@ require.config({
 	}
 });
 
-require(['main'], function(Main) {
-	var v = Main.View;
-	v.render();
+require(['app'], function(App) {
+	// var v = App.View;
+	// v.render();
+	App.initialize();
 });
