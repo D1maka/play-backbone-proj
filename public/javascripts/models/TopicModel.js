@@ -4,22 +4,26 @@ define([
 	'backbone'
 	], function($, _, Backbone) {
 		var Topic = Backbone.Model.extend({
-            urlRoot: "/topics",
+            urlRoot: '/topics',
 
             defaults: {
                 topicName: '',
                 topicSubject: '',
-                topicComment: ''
+                topicComment: '',
+                creationDate: new Date()
             },
             initialize: function() {
-                this.creationDate = new Date();
+
             }
         });
 
         return {
-        	getTopicModel: function() {
-        	    return new Topic();
-        	}
+        	getTopicModelClass: function() {
+        	    return Topic;
+        	},
+            getTopicModelObject: function() {
+                return new Topic();
+            }
         };
 	}
 );

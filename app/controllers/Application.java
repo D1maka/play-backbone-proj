@@ -21,7 +21,6 @@ public class Application extends Controller {
     public static Result index() {
         ArrayList<Topic> topics = new ArrayList<>();
         return ok(test.render("Your new application is ready.", Json.toJson(topics)));
-//        return ok(test.render("Your new application is ready."));
     }
 
     public static F.Promise<Result> getTopics() {
@@ -45,8 +44,23 @@ public class Application extends Controller {
     }
 
     @BodyParser.Of(BodyParser.Json.class)
-    public static Result newTopic() {
-        return ok("Not implemented");
+    public static F.Promise<Result> newTopic() {
+        F.Promise<JsonNode> jsonPromise = F.Promise.promise(new F.Function0() {
+            @Override
+            public JsonNode apply() throws Throwable {
+                JsonNode json = request().body().asJson();
+                return json;
+            }
+        });
+
+        return jsonPromise.map(new F.Function<JsonNode, Result>() {
+            @Override
+            public Result apply(JsonNode jsonNode) throws Throwable {
+                Topic newTopic = Json.fromJson(jsonNode, Topic.class);
+                Topic.store(newTopic);
+                return ok(Json.toJson(newTopic.topicId));
+            }
+        });
     }
 
     @BodyParser.Of(BodyParser.Json.class)
@@ -75,14 +89,14 @@ public class Application extends Controller {
             @Override
             public Result apply() throws Throwable {
                 Topic topicData = Topic.find.byId(id);
-
-                return ok("Not implemented yet");
+                JsonNode json = Json.toJson(topicData);
+                return ok(json);
             }
         });
         return resultPromise;
     }
 
-    public static Result newComment(Long id) {
+    public static Result newComment(Long id, Long commentId) {
         return ok("Not implemented");
     }
 }

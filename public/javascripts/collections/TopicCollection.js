@@ -6,7 +6,7 @@ define([
 	], function($, _, Backbone, TopicModel) {
 		var TopicCollection = Backbone.Collection.extend({
             url: "/topics",
-            model: TopicModel.getTopicModel()
+            model: TopicModel.getTopicModelClass()
         });
 
         return {

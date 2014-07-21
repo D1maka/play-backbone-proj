@@ -32,9 +32,7 @@ define([
             },
 
             newTopic: function() {
-                console.log("hello");
-                console.log(this.router);
-                this.router.navigate('/topics', true);
+                this.router.navigate('topics/new', true);
             },
 
             setRouter: function(r) {

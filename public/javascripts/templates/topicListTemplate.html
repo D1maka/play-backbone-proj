@@ -15,7 +15,9 @@
         <tbody>
         	<% _.each(topics, function(topic) { %>
         		<tr>
-                    <td><%= topic.get('topicName') %></td>
+                    <td>
+                        <a href="#topics/<%= topic.get('topicId') %>"><%= topic.get('topicName') %></a>
+                    </td>
                     <td><%= topic.get('topicSubject') %></td>
                     <td><%= topic.get('creationDate') %></td>
                 </tr>

@@ -6,12 +6,12 @@
 GET     /                                   controllers.Application.index()
 
 GET     /topics                          controllers.Application.getTopics()
-
-GET     /topics/new                          controllers.Application.newTopic()
-POST     /topics/new                          controllers.Application.createNewTopic()
+POST    /topics                          controllers.Application.newTopic()
 
 GET        /topics/:id                  controllers.Application.topicPage(id: Long)
-POST       /topics/:id                 controllers.Application.newComment(id: Long)
+
+
+POST       /topics/:topicId/comment/:commentId    controllers.Application.newComment(topicId: Long, commentId: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
